@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinland Saga | Современный фан-сайт</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.svg" alt="Логотип Винланд" class="nav-logo" style="width: 120px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="story.html">Сюжет</a></li>
+                    <li class="nav-item"><a class="nav-link" href="characters.html">Персонажи</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Галерея</a></li>
+                    <li class="nav-item"><a class="nav-link" href="author.html">Автор</a></li>
+                    <li class="nav-item"><a class="nav-link" href="media.html">Медиа</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forum.html">Форум</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fanart.html">Фан-арт</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <header class="hero-section">
+        <div class="container text-center position-relative">
+            <h1 class="hero-title mb-4">VINLAND<br>SAGA</h1>
+            <p class="lead text-muted">Путь к истинному воинству начинается здесь</p>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container my-5">
+        <div class="row g-4">
+            <!-- Карточка 1 - Сюжет -->
+            <div class="col-lg-4 col-md-6">
+                <div class="section-card" onmousemove="cardParallax(event, this)">
+                    <div class="icon-box mb-4">
+                        <img src="/images/icon1.webp" alt="Иконка сюжета" class="img-fluid" style="width: 60px;">
+                    </div>
+                    <h3 class="h4 mb-3">Эпическое повествование</h3>
+                    <p class="text-secondary">Откройте для себя глубину истории о поисках Винланда</p>
+                    <a href="story.html" class="btn btn-modern mt-3">Исследовать</a>
+                </div>
+            </div>
+
+            <!-- Карточка 2 - Персонажи -->
+            <div class="col-lg-4 col-md-6">
+                <div class="section-card" onmousemove="cardParallax(event, this)">
+                    <div class="icon-box mb-4">
+                        <img src="/images/icon2.webp" alt="Иконка персонажей" class="img-fluid" style="width: 60px;">
+                    </div>
+                    <h3 class="h4 mb-3">Легендарные воины</h3>
+                    <p class="text-secondary">Изучите характеры и мотивации ключевых персонажей</p>
+                    <a href="characters.html" class="btn btn-modern mt-3">Узнать больше</a>
+                </div>
+            </div>
+
+            <!-- Остальные карточки (3-9) -->
+            <!-- Галерея -->
+            <div class="col-lg-4 col-md-6">
+                <div class="section-card" onmousemove="cardParallax(event, this)">
+                    <div class="icon-box mb-4">
+                        <img src="images/icon3.webp" alt="Иконка галереи" class="img-fluid" style="width: 60px;">
+                    </div>
+                    <h3 class="h4 mb-3">Визуальная вселенная</h3>
+                    <p class="text-secondary">Эксклюзивные арты и концепты из мира саги</p>
+                    <a href="gallery.html" class="btn btn-modern mt-3">Смотреть</a>
+                </div>
+            </div>
+
+            <!-- Добавьте остальные 6 карточек по аналогии -->
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-white py-5 border-top">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="mb-3">Vinland Saga</h5>
+                    <p class="text-secondary small">Неофициальный ресурс, посвященный философской манге Макото Юкимуры</p>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5 class="mb-3">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="author.html" class="text-decoration-none text-dark small">Творчество автора</a></li>
+                        <li class="mb-2"><a href="media.html" class="text-decoration-none text-dark small">Анимация и музыка</a></li>
+                        <li class="mb-2"><a href="forum.html" class="text-decoration-none text-dark small">Обсуждения</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="mb-3">Сообщество</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-outline-dark btn-sm rounded-pill">
+                            <i class="fab fa-discord me-2"></i>Discord
+                        </a>
+                        <a href="#" class="btn btn-outline-dark btn-sm rounded-pill">
+                            <i class="fab fa-telegram-plane me-2"></i>Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="text-secondary small mb-0">&copy; 2023 Vinland Saga Fan Community. Не является официальным сайтом</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Параллакс-эффект для карточек
+        function cardParallax(e, card) {
+            const x = e.clientX - card.getBoundingClientRect().left;
+            const y = e.clientY - card.getBoundingClientRect().top;
+            card.style.setProperty('--x', `${x}px`);
+            card.style.setProperty('--y', `${y}px`);
+        }
+
+        // Анимация загрузки
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

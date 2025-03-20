@@ -1,0 +1,590 @@
+:root {
+    --main-green: #A4FFA1;
+    --dark-green: #6BFF66;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --text-dark: #1A1A1A;
+}
+
+body {
+    background: #F8FFF8;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Современная навигация */
+.navbar {
+    backdrop-filter: blur(10px);
+    background: var(--glass-bg) !important;
+    box-shadow: 0 4px 20px rgba(164, 255, 161, 0.1);
+    border-bottom: 1px solid rgba(164, 255, 161, 0.2);
+}
+
+.nav-link {
+    position: relative;
+    color: var(--text-dark) !important;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--main-green);
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Герой секция с анимацией */
+.hero-section {
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        rgba(164, 255, 161, 0.1) 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(164, 255, 161, 0.1) 100%);
+    animation: gradientFlow 20s linear infinite;
+}
+
+@keyframes gradientFlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    background: linear-gradient(45deg, var(--main-green), var(--dark-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+}
+
+/* Современные карточки */
+.section-card {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(164, 255, 161, 0.3);
+    transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    position: relative;
+}
+
+.section-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(164, 255, 161, 0.15);
+}
+
+.section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(600px circle at var(--x) var(--y), 
+        rgba(164, 255, 161, 0.1), transparent 40%);
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+/* Кнопки нового стиля */
+.btn-modern {
+    background: var(--main-green);
+    color: var(--text-dark);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.btn-modern::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    left: -100%;
+    top: 0;
+    transition: 0.3s;
+}
+
+.btn-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(164, 255, 161, 0.3);
+}
+
+.btn-modern:hover::after {
+    left: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Стили для страницы сюжета */
+.story-header {
+    padding: 120px 0 60px;
+    background: linear-gradient(45deg, 
+        rgba(var(--main-green-rgb), 0.05) 0%, 
+        rgba(255, 255, 255, 0.2) 100%);
+}
+
+.timeline-section {
+    position: relative;
+    z-index: 1;
+}
+
+.arc-title {
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(45deg, var(--main-green), var(--dark-green));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.image-wrapper {
+    overflow: hidden;
+    border-radius: var(--image-border-radius);
+    transition: transform var(--transition-duration) ease;
+    will-change: transform;
+}
+
+.parallax-img {
+    transition: transform 0.4s ease-out;
+    will-change: transform;
+}
+
+.arc-highlights li::before {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.quote-block {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.grid-image {
+    object-position: center;
+    aspect-ratio: 16/9;
+}
+
+@media (max-width: 768px) {
+    .arc-title {
+        font-size: 1.8rem;
+    }
+    
+    .timeline-item {
+        padding: 1.5rem 0;
+    }
+    
+    .image-wrapper {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Стили для страницы персонажей */
+.characters-header {
+    background: linear-gradient(45deg, 
+        rgba(164, 255, 161, 0.05) 0%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    padding: 100px 0 50px;
+}
+
+.character-img {
+    border: 3px solid var(--main-green);
+    box-shadow: 0 15px 40px rgba(164, 255, 161, 0.2);
+}
+
+.character-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, var(--main-green), var(--dark-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.character-meta .badge {
+    background: rgba(164, 255, 161, 0.15);
+    color: var(--text-dark);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.character-stats {
+    list-style: none;
+    padding-left: 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+}
+
+.character-stats li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.character-card {
+    background: var(--glass-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(164, 255, 161, 0.3);
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(164, 255, 161, 0.15);
+}
+
+.card-image {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.character-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .character-name {
+        font-size: 2rem;
+    }
+    
+    .character-img {
+        margin-bottom: 30px;
+    }
+    
+    .card-image {
+        height: 250px;
+    }
+}
+
+/* Для главного изображения Торфинна */
+.character-photo {
+    width: 100%;       /* Ширина по родительскому контейнеру */
+    height: 400px;     /* Фиксированная высота как у canute.jpg */
+    overflow: hidden;  /* Скрыть выходящие за пределы части */
+    position: relative;
+}
+
+.character-photo img {
+    width: 200%;       /* Увеличиваем ширину в 2 раза */
+    height: 100%;
+    object-fit: cover; /* Сохраняет пропорции, обрезая изображение */
+    object-position: center; /* Центрирует изображение */
+}
+
+/* Для обычных карточек персонажей */
+.card-image {
+    height: 400px;     /* Такая же высота как у canute.jpg */
+    width: 100%;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Стили галереи */
+.gallery-header {
+    background: linear-gradient(45deg, 
+        rgba(164, 255, 161, 0.05) 0%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    padding: 100px 0 50px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(164, 255, 161, 0.3);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(164, 255, 161, 0.15);
+}
+
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 20px;
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover .item-overlay {
+    opacity: 1;
+}
+
+.item-category {
+    background: var(--main-green);
+    color: var(--text-dark);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.btn-filter {
+    background: rgba(164, 255, 161, 0.15);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 25px;
+    padding: 8px 25px;
+    transition: 0.3s;
+}
+
+.btn-filter.active {
+    background: var(--main-green);
+    font-weight: 600;
+}
+
+.btn-zoom {
+    background: var(--glass-bg);
+    color: var(--text-dark);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.modal-content {
+    background: none;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .gallery-header {
+        padding: 90px 0 30px;
+    }
+    
+    .gallery-item {
+        margin-bottom: 15px;
+    }
+}
+
+/* Стили страницы автора */
+.author-header {
+    padding: 140px 0 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.author-portrait {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto 40px;
+    transition: transform 0.3s;
+}
+
+.portrait-img {
+    border-radius: 50%;
+    width: 100%;
+    filter: grayscale(30%);
+    border: 4px solid var(--main-green);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.portrait-frame {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid var(--dark-green);
+    border-radius: 50%;
+    animation: rotateFrame 20s linear infinite;
+}
+
+@keyframes rotateFrame {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.timeline-section {
+    background: linear-gradient(45deg, 
+        rgba(164, 255, 161, 0.03) 0%, 
+        rgba(255, 255, 255, 0.1) 100%);
+}
+
+.timeline-path {
+    position: relative;
+    margin-left: 120px;
+    padding: 40px 0;
+    border-left: 3px solid var(--main-green);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: 1s;
+}
+
+.timeline-item.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -47px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--main-green);
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.author-quote {
+    font-size: 1.5rem;
+    padding: 25px;
+    background: url('images/author/scroll-texture.jpg');
+    border-radius: 0 20px 20px 0;
+    position: relative;
+    transform: rotate(-1deg);
+}
+
+.work-cover {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.work-details {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    color: white;
+    transition: 0.4s;
+}
+
+.work-item:hover .work-details {
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .timeline-path {
+        margin-left: 30px;
+    }
+    
+    .author-quote {
+        font-size: 1.2rem;
+    }
+}
+
+/* Добавьте в style.css */
+.timeline-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Стили для выравнивания изображений */
+.timeline-image {
+    margin: 20px 0;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 250px; /* Фиксированная высота */
+    object-fit: cover; /* Обрезка с сохранением пропорций */
+    object-position: center; /* Центрирование изображения */
+    border: 2px solid var(--main-green);
+    transition: transform 0.3s ease;
+}
+
+.timeline-image:hover img {
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .timeline-image img {
+        height: 180px; /* Меньшая высота для мобильных */
+    }
+}
+
+.symbol-art {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.symbol-art:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Тень */
+}
+
+.symbol-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Для адаптации изображения */
+}
